@@ -1,0 +1,49 @@
+{% extends 'food/base.html' %}
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+
+
+</head>
+<body  >
+{% block body %}
+{% for item in item_list%}
+<div class="row">
+    <div class="col-md-3 offset-md-2">
+        <img class="card" height="150px" width="500px" src="{{ item.item_image }}"/>
+    </div>
+    <div class="col-md-4 "></div>
+
+    <h3 class="text-center">{{item.item_name}}</h3>
+    <h5 class="text-center">{{item.item_desc }}</h5>
+    <h6 class="text-center">${{item.item_price}}</h6>
+    <div class="text-center">
+        <a href="{% url 'food:detail' item.id %}" class="btn btn-success">Details</a>
+    </div>
+
+
+
+</div>
+
+
+
+
+{% endfor %}
+
+{% endblock %}
+This is the old code
+
+
+<ul class="item_style">
+    <li>
+
+        <a href="{% url 'food:detail' item.id %}">{{item.id}} -- {{item.item_name}}</a>
+
+    </li>
+
+</ul>
+
+
+</body>
+</html>
